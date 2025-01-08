@@ -1,0 +1,49 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+
+// const parent = React.createElement("div", { id: "parent" }, [
+//   React.createElement("div", { id: "child" }, [
+//     React.createElement("h1", {}, "I'm an h1 tag 🚀"),
+//     React.createElement("h2", {}, "I'm an h2 tag"),
+//   ]),
+//   React.createElement("div", { id: "child" }, [
+//     React.createElement("h1", {}, "I'm an h1 tag"),
+//     React.createElement("h2", {}, "I'm an h2 tag"),
+//   ]),
+// ]);
+
+// JSX - is not HTML in JS
+// JSX и React это разные вещи.
+// В этом примере jsxHeading - это элемент React, а элемент React это объект.
+const jsxHeading = <h1 id="heading">Murad React using JSX 🚀</h1>;
+console.log(jsxHeading);
+const root = createRoot(document.getElementById("root"));
+root.render(jsxHeading);
+
+// Компоненты в React
+// - 1 Компоненты основанные на Классах (Старый способ)
+// - 2 Функциональные Компоненты
+
+// Функциональный компонент - это обычная функция JS, и данная функция возвращает элемент JSX
+// Стрелочная функция с return
+const HeadingComponent = () => {
+  return <h1 className="heading">Murad React using JSX 🚀</h1>;
+};
+// Стрелочная функция без return, но из за того что в JSX принято добавлять круглые скобки мы добавили круглые скобки.
+const HeadingComponent2 = () => (
+  <h1 className="heading">Murad React using JSX 🚀</h1>
+);
+// Рендер функционального компонента
+// root.render(<HeadingComponent />);
+
+// Мы также можем добавить внутри одного функционального компонента,
+// другой функциональный компонент.
+// Это называется компонентная композиция
+const HeadingComponent3 = () => (
+  <h1 className="heading">
+    Murad React using JSX 🚀 <HeadingComponent />
+  </h1>
+);
+
+// Внутри функционального компонента, мы можем с помощью фигурных скобок {}
+// добавлять любое выражения JS, в том числе и обычный элемент REACT.
