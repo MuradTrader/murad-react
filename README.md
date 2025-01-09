@@ -18,3 +18,27 @@
 - HTTPS
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+# Murad Food
+
+- Header
+- - Logo
+- - Nav Items
+- Body
+- - Search
+- - Restaurant Container
+- - RestaurantCard
+- - Img
+- - Name of Res, Star Rating, cuisines, delery tie
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
+
+# React Hooks
+
+(Normal JS utility functions)
+
+- useState() - Super powerful State Variables in React
+- useEffect()
