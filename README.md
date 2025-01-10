@@ -41,4 +41,9 @@
 (Normal JS utility functions)
 
 - useState() - Super powerful State Variables in React
-- useEffect()
+- useEffect() - Once the component has rendered and once the render loop has completed, the useEffect function will quickly call the callback function that we passed as an argument to the useEffect function.
+
+# Request to API
+
+- 1. Loads > API > Render
+- 2. Loads > Render > API > Render (Best approach / Best UX)
