@@ -47,3 +47,8 @@
 
 - 1. Loads > API > Render
 - 2. Loads > Render > API > Render (Best approach / Best UX)
+
+# 2 types Routing in web apps
+
+- Client Side Routing
+- Server Side Routing

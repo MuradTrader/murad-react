@@ -1,0 +1,11 @@
+Restaurant api : 
+https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9690247&lng=72.8205292&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+
+menu api : https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.9690247&lng=72.8205292&restaurantId=683064&catalog_qa=undefined&submitAction=ENTER
+
+Search api 1 : 
+https://www.swiggy.com/dapi/misc/place-autocomplete?input=mumbai
+
+
+Search api 2 : 
+https://www.swiggy.com/dapi/misc/address-recommend?place_id=ChIJwe1EZjDG5zsRaYxkjY_tpF0
