@@ -77,7 +77,7 @@
 ------ UPDATE
 
 - Render(API data)
-- <HTML (new API data)>
+- HTML (new API data)
 - Component Did Update
 
 ![Методы жизненного цикла](./ReactM.png)
