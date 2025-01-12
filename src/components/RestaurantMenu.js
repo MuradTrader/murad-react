@@ -17,15 +17,24 @@ const RestaurantMenu = () => {
     const json = await data.json();
     setResInfo(json.data);
   };
-  if (resInfo === null) <Shimmer />;
 
-  const info = resInfo?.cards[2]?.card?.card?.info || {};
-  const { name, cuisines, costForTwoMessage } = info;
+  // Это делается при первом рендеринге до вызова API с помощью useEffect().
+  // Чтобы не возникало ошибки со значением по умолчанию resInfo а это useState(null).
+  // Если это не указать то React пытается делать диструктуризацию переменной resInfo,
+  // со значением null при первом рендеринге до вызова API  с помощью useEffect().
+  // Показываем shimmer до загрузки данных API.
+  if (resInfo === null) return <Shimmer />;
 
-  const infoCards =
+  // const info = resInfo?.cards[2]?.card?.card?.info || {};
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info;
+
+  // const infoCards =
+  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card?.card
+  //     .itemCards || [];
+  const itemCards =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card?.card
-      .itemCards || [];
-  const itemCards = infoCards;
+      .itemCards;
 
   return (
     <div className="menu">

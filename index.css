@@ -81,3 +81,13 @@
 .filter {
   display: flex;
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.img-User {
+  max-width: 200px;
+  border-radius: 50%;
+}

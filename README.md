@@ -52,3 +52,32 @@
 
 - Client Side Routing
 - Server Side Routing
+
+# Component Class
+
+- Parent Constructor
+- Parent Render
+- Child Constructor
+- Child Render
+- secondChild Constructor
+- secondChild Render
+- Child Component Did Mount
+- secondChild Component Did Mount
+- Parent Component Did Mount
+
+# ---- MOUNING ----
+
+- Constructor (dummy - (фиктивные данные))
+- Render (dummy)
+  <HTML Dummy>
+- Component Did Mount
+  <API Call>
+  <this.setState> => State Variable is updated
+
+------ UPDATE
+
+- Render(API data)
+- <HTML (new API data)>
+- Component Did Update
+
+![Методы жизненного цикла](./ReactM.png)
