@@ -8,7 +8,7 @@ import Body from "./Body";
 import Contact from "./Contact";
 import Error from "./Error";
 import RestaurantMenu from "./RestaurantMenu";
-import Shimmer from "./Shimmer";
+import { ShimmerCard } from "./Shimmer";
 // import Grocery from "./Grocery";
 
 const Grocery = lazy(() => import("./Grocery"));
@@ -35,7 +35,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<Shimmer />}>
+          <Suspense fallback={<ShimmerCard />}>
             {" "}
             <About />{" "}
           </Suspense>
@@ -48,7 +48,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: (
-          <Suspense fallback={<Shimmer />}>
+          <Suspense fallback={<ShimmerCard />}>
             {" "}
             <Grocery />{" "}
           </Suspense>

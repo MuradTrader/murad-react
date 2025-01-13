@@ -1,6 +1,6 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
+import { ShimmerCard } from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -8,6 +8,7 @@ const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const RestaurantCardOpen = withPromtedLabel(RestaurantCard);
 
   console.log("Body Rendered");
 
@@ -20,7 +21,6 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9690247&lng=72.8205292&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
     setListOfRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -34,7 +34,7 @@ const Body = () => {
   if (onlineStatus === false) return <h1>Подключись к интернету! 🛜</h1>;
 
   return listOfRestaurant.length === 0 ? (
-    <Shimmer />
+    <ShimmerCard />
   ) : (
     <div className="body">
       <div className="flex">
@@ -63,10 +63,10 @@ const Body = () => {
           <button
             className="px-2 py-2 bg-gray-100 rounded-lg"
             onClick={() => {
-              const filteredList = listOfRestaurant.filter(
-                (res) => res.info.avgRating > 4
+              const filteredList = filteredRestaurant.filter(
+                (res) => res.info.avgRating > 4.2
               );
-              setListOfRestaurant(filteredList);
+              setFilteredRestaurant(filteredList);
             }}
           >
             Top Rated Restaurant
@@ -79,8 +79,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            {" "}
-            <RestaurantCard resData={restaurant} />{" "}
+            {restaurant.info.isOpen ? (
+              <RestaurantCardOpen resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}{" "}
           </Link>
         ))}
       </div>

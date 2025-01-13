@@ -1,5 +1,5 @@
 import React from "react";
-import Shimmer from "./Shimmer";
+import { ShimmerCard } from "./Shimmer";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class UserClass extends React.Component {
   }
 
   render() {
-    if (this.state.userInfo === null) return <Shimmer />;
+    if (this.state.userInfo === null) return <ShimmerCard />;
     const { login, avatar_url, html_url } = this.state.userInfo;
     // console.log("Child Render");
     return (

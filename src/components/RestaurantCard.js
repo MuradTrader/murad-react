@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
   } = resData?.info;
   return (
     <div
-      className="ml-7 mr-7 mb-20 p-4 w-[250px] rounded-lg w-80 h-[550px]"
+      className="ml-7 mr-7 mb-20 p-4 w-[250px] rounded-lg w-80 h-[570px] shadow-lg"
       style={{
         backgroundColor: "#f0f0f0",
       }}
@@ -30,6 +30,19 @@ const RestaurantCard = (props) => {
       <h4>{costForTwo}</h4>
     </div>
   );
+};
+
+export const withPromtedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <label className="absolute top-0 bg-black m-1 p-1 rounded-lg text-white">
+          Open
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
