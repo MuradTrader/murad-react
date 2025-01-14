@@ -1,25 +1,28 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import { Provider } from "react-redux";
 // components
 import Header from "./Header";
 import Body from "./Body";
-// import About from "./About";
 import Contact from "./Contact";
 import Error from "./Error";
 import RestaurantMenu from "./RestaurantMenu";
 import { ShimmerCard } from "./Shimmer";
-// import Grocery from "./Grocery";
+import appStore from "../utils/appStore";
+import Cart from "./Cart";
 
 const Grocery = lazy(() => import("./Grocery"));
 const About = lazy(() => import("./About"));
 
 const AppLayuot = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -57,6 +60,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
